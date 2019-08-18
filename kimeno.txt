@@ -1,0 +1,76 @@
+
+Video Overview
+--------------
+
+Hello guys, this video is a basic introduction to React hooks. React hooks were added 
+in 16.8 version of React and allow us to use lifecycle and state in functional
+components. The real benefit however, is that you can also create your own custom hooks 
+and reuse them wherever you want in your application.
+
+So we are going to do all of that by creating a simple login form 
+
+
+
+Set react app
+--------------
+Ok so we are going to use create-react-app
+
+so assuming you already have node type:
+
+**
+ACTION TYPE:
+npx create-react-app react-hooks-loginform
+**
+
+and if you don't have it google node
+
+**
+ACTION:
+(go to https://nodejs.org/en/ and show download link)
+**
+
+...here, download it and install it.
+
+
+When the app is installed
+cd react-hooks-loginform
+npm start
+
+
+
+Create LoginSreen component adding to App when you have something to show
+When you add handleSubmit time for useState then -> onChange!
+
+------------
+|> USE state 
+------------
+To set form values we need state and setState 
+
+use event only and event.target.name
+
+const onChange = e => {
+    const name = e.target.name;
+    setFormValues({ ...formValues, [name]: e.target.value });
+  };
+
+  <input
+          type="text"
+          name="username"
+          value={formValues.username}
+          onChange={e => onChange(e)}
+        />
+
+
+-------------
+|> USE EFFECT 
+-------------
+
+in the Form Message component
+
+props.passwordLength
+
+----------------
+|> USE TextInput 
+----------------
+
+

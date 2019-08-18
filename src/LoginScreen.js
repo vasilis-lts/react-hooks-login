@@ -14,6 +14,7 @@ export default function LoginScreen() {
     } else {
       console.log(formValues);
       setFormMessageVisible(false);
+      console.log("%cLogin Successful!", "color:green;font-size:2rem;");
     }
   };
 
@@ -23,7 +24,7 @@ export default function LoginScreen() {
 
   return (
     <div className="screen flex-center-xy">
-      <form className="flex-column" onSubmit={handleSubmit}>
+      <form className="flex-column" onSubmit={handleSubmit} autoComplete="off">
         <h1>Login Form</h1>
 
         <label htmlFor="username">Username</label>

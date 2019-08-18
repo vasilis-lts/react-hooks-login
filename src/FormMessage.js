@@ -5,12 +5,12 @@ export default function FormMessage(props) {
 
   // Component did mount
   useEffect(() => {
-    console.log("Form message component mounting");
+    console.log("Form msg component mounting");
   }, []);
 
   // Component did update
   useEffect(() => {
-    console.log("password length " + props.passwordLength);
+    console.log("Form msg updating! Password length is" + props.passwordLength);
     if (props.passwordLength >= 6) {
       setMessage("Password ok!");
     } else {
@@ -21,7 +21,7 @@ export default function FormMessage(props) {
   // Component will unmount
   useEffect(() => {
     return () => {
-      console.log("Form message component unmounts");
+      console.log("Form msg component unmounts");
     };
   }, []);
 
