@@ -10,7 +10,9 @@ export default function FormMessage(props) {
 
   // Component did update
   useEffect(() => {
-    console.log("Form msg updating! Password length is" + props.passwordLength);
+    console.log(
+      "Form msg updating! Password length is " + props.passwordLength
+    );
     if (props.passwordLength >= 6) {
       setMessage("Password ok!");
     } else {
@@ -24,6 +26,8 @@ export default function FormMessage(props) {
       console.log("Form msg component unmounts");
     };
   }, []);
+
+  console.log("rendering");
 
   return (
     <div className={`mt1 ${props.passwordLength < 6 ? "red" : "green"}`}>

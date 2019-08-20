@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import FormMessage from "./FormMessage";
-import UseTextInput from "./useTextInput";
+import useInput from "./useInput";
 
 export default function LoginScreen() {
-  const [formValues, setFormValues] = useState({ username: "", password: "" });
+  const username = useInput("");
+  const password = useInput("", "password");
+  const [formValues, setFormValues] = useState({});
   const [formMessageVisible, setFormMessageVisible] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (formValues.password.length < 6) {
+    setFormValues({
+      username: username.value,
+      password: password.value
+    });
+
+    if (password.value.length < 6) {
       setFormMessageVisible(true);
     } else {
       console.log(formValues);
@@ -18,35 +25,21 @@ export default function LoginScreen() {
     }
   };
 
-  const onChange = (name, value) => {
-    setFormValues({ ...formValues, [name]: value });
-  };
-
   return (
     <div className="screen flex-center-xy">
-      <form className="flex-column" onSubmit={handleSubmit} autoComplete="off">
+      <form className="flex-column" onSubmit={handleSubmit}>
         <h1>Login Form</h1>
 
         <label htmlFor="username">Username</label>
-        <UseTextInput
-          name="username"
-          value={formValues.username}
-          onChange={onChange}
-          required
-        />
+        <input {...username} />
         <label htmlFor="password">Password</label>
-        <UseTextInput
-          name="password"
-          value={formValues.password}
-          onChange={onChange}
-          required
-        />
+        <input {...password} />
 
         <button className="mt1 btn btn-primary" type="submit">
           Login
         </button>
         {formMessageVisible && (
-          <FormMessage passwordLength={formValues.password.length} />
+          <FormMessage passwordLength={password.value.length} />
         )}
       </form>
     </div>
